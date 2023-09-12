@@ -10,23 +10,19 @@ import org.springframework.stereotype.Component;
 public class AccountRunner implements ApplicationRunner {
 
     @Autowired
-    private AccountRepository accounts;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private AccountService accounts;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        String password = passwordEncoder.encode("password");
         Account user = new Account();
         user.setUsername("user");
-        user.setPassword(password);
+        user.setPassword("password");
         user.setRole("USER");
         Account admin = new Account();
         admin.setUsername("admin");
-        admin.setPassword(password);
+        admin.setPassword("password");
         admin.setRole("ADMIN");
-        accounts.save(user);
-        accounts.save(admin);
+        accounts.createUser(user);
+        accounts.createUser(admin);
     }
 }
