@@ -17,4 +17,21 @@ public class SimpleController {
 
         return "simple/index";
     }
+
+    @GetMapping("/info")
+    public String info(Model model) {
+        return "simple/info";
+    }
+
+    @GetMapping("/dashboard")
+    public String dashboard(Model model, Principal principal) {
+        model.addAttribute("message", "Hello" + principal.getName());
+        return "simple/dashboard";
+    }
+
+    @GetMapping("/admin")
+    public String admin(Model model, Principal principal) {
+        model.addAttribute("message", "Hello" + principal.getName());
+        return "simple/admin";
+    }
 }
