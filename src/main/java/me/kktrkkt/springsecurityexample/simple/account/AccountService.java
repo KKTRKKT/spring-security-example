@@ -31,6 +31,6 @@ public class AccountService implements UserDetailsService {
     public Account createUser(Account account) {
         String password = passwordEncoder.encode(account.getPassword());
         account.setPassword(password);
-        return account;
+        return accounts.save(account);
     }
 }
