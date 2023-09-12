@@ -1,4 +1,4 @@
-package me.kktrkkt.springsecurityexample.simple;
+package me.kktrkkt.springsecurityexample.simple.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

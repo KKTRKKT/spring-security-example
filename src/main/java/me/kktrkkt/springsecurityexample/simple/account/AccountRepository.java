@@ -1,4 +1,4 @@
-package me.kktrkkt.springsecurityexample.simple;
+package me.kktrkkt.springsecurityexample.simple.account;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,4 +1,4 @@
-package me.kktrkkt.springsecurityexample.simple;
+package me.kktrkkt.springsecurityexample.simple.account;
 
 import lombok.Getter;
 import lombok.Setter;
