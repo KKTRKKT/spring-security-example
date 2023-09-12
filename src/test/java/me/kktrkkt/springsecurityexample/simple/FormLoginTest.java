@@ -27,6 +27,7 @@ public class FormLoginTest {
     private AccountService accounts;
 
     @Test
+    // 테스트 DB에 적용된 내용을 롤백시켜준다
     @Transactional
     void login_success() throws Exception {
         createAccount("kktrkkt", "password", "USER");

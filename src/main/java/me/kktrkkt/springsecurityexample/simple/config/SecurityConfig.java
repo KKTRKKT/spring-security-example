@@ -17,12 +17,14 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
+    // 정적 리소스가 security를 무시하게 해준다
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
         return (web) -> web.ignoring()
                 .antMatchers("/resources/**");
     }
 
+    // 구체적인 security 필터 설정, 각 uri에 인증 및 인가 정보를 기술한다
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
@@ -34,8 +36,10 @@ public class SecurityConfig {
         return http.build();
     }
 
+    // password를 인코딩해주는 인코더 설정
     @Bean
     public PasswordEncoder passwordEncoder(){
+        // spring에서 권장하는 인코더로 기본적으로 bycrypt 인코더를 제공한다
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 

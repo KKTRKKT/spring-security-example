@@ -20,6 +20,7 @@ class SimpleControllerTest {
     private MockMvc mockMvc;
 
     @Test
+    // 익명 사용자 테스트
     @WithAnonymousUser
     void main_anonymous() throws Exception {
         this.mockMvc.perform(MockMvcRequestBuilders.get("/"))
@@ -28,6 +29,7 @@ class SimpleControllerTest {
     }
 
     @Test
+    // 인증 유저 테스트
     @WithUser
     void main_user() throws Exception {
         this.mockMvc.perform(MockMvcRequestBuilders.get("/"))
