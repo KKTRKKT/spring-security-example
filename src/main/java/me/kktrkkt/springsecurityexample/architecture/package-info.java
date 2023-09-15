@@ -17,4 +17,14 @@ AuthenticationManager: 하나 이상의 AuthenticationProvider를 통해 Authent
                               인증시 UserDetailsService에서 UserDetails 정보를 가져와서 사용자가 입력한 정보(username, password)와 비교해 인증하게 된다.
                               인증이 유효하면 Autehncation의 Principal에 유저 정보를 담아서 반환하고 인증이 유효하지 않으면 비활성화 계정, 잘못된 비번, 잠긴 계정등의 예외를 던진다
 
+UsernamePasswordAuthenticationFilter: 아이디와 비밀번호로 로그인할 때 동작하는 인증 필터다.
+                                      아이디와 비밀번호를 담고 있는 UsernamePasswordAutehncation이라는 Authentication을 생성
+                                      AuthenticationManager를 통해 인증 수행
+                                      인증 성공시 유저 정보를 담은 Authentication을 반환한다.
+
+SecurityContextPersistenceFilter: 인증된 사용자 정보를 유지하고 다음 요청에서 사용할 수 있도록 도와주는 필터다
+                                  요청이 들어오면  HTTP 세션, 쿠키, 또는 다른 저장 메커니즘을 통해 이전 요청에서 저장한 SecurityContext를 가져와 SecurityContextHolder에 넣는다
+                                  요청이 처리되는 동안에는 전역적으로 SecurityContext를 사용할 수 있게된다
+                                  요청이 끝난 뒤에는 저장매커니즘을 이용해 SecurityContext를 저장한다
+
  */
