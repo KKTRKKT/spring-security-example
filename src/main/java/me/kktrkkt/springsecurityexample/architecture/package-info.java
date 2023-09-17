@@ -27,4 +27,9 @@ SecurityContextPersistenceFilter: 인증된 사용자 정보를 유지하고 다
                                   요청이 처리되는 동안에는 전역적으로 SecurityContext를 사용할 수 있게된다
                                   요청이 끝난 뒤에는 저장매커니즘을 이용해 SecurityContext를 저장한다
 
+FilterChainProxy: FilterChain을 관리하는 주체로, 모든 요청은 FilterChainProxy로 들어와 URI 패턴 등에 따라 적절한 FilterChain을 적용해 요청을 처리한다
+    - FilterChain: SecurityFilter를 체인 형태로 구성한것으로 요청이 이 체인의 흐름에 따라 보안관련 작업을 수행한다
+        - SecurityFilter: 보안 관련 작업을 처리하는 필터로 인증, 권한부여, 세션관리 등의 작업을 처리한다(ex UsernamePasswordAuthenticationFilter, SecurityContextPersistenceFilter)
+
+
  */
