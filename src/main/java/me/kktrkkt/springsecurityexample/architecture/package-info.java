@@ -31,5 +31,10 @@ FilterChainProxy: FilterChain을 관리하는 주체로, 모든 요청은 Filter
     - FilterChain: SecurityFilter를 체인 형태로 구성한것으로 요청이 이 체인의 흐름에 따라 보안관련 작업을 수행한다
         - SecurityFilter: 보안 관련 작업을 처리하는 필터로 인증, 권한부여, 세션관리 등의 작업을 처리한다(ex UsernamePasswordAuthenticationFilter, SecurityContextPersistenceFilter)
 
+DelegatingFilterProxy: 서블릿 컨테이너에 등록된 필터로 요청이 들어오면 SpringApplicationContext에 등록된 FilterChainProxy에게 위임한다.
+
+AccessDecisionManager: 인가를 결정하는 인터페이스다. AccessDecisionVoter들의 찬성 및 반대 결과를 취합해 인가 여부를 결정한다
+                       취합 방법에는 AffrmativeBased(찬성이 하나라도 나오면 인가), ConsensusBased(다수결이면 인가), UnanimousBased(만장일치면 인가)가 있다.
+    - AccessDecisionVoter:
 
  */
