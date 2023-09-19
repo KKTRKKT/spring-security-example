@@ -3,6 +3,7 @@ package me.kktrkkt.springsecurityexample.architecture.access_decision_manager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.access.AccessDecisionManager;
+import org.springframework.security.access.expression.SecurityExpressionHandler;
 import org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl;
 import org.springframework.security.access.vote.AffirmativeBased;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -13,6 +14,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.FilterInvocation;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler;
 import org.springframework.security.web.access.expression.WebExpressionVoter;
@@ -38,6 +40,16 @@ public class SecurityConfig {
         return new AffirmativeBased(of(voter));
     }
 
+    public SecurityExpressionHandler<FilterInvocation> expressionHandler() {
+        RoleHierarchyImpl roleHierarchy = new RoleHierarchyImpl();
+        roleHierarchy.setHierarchy("ROLE_ADMIN > ROLE_USER");
+
+        DefaultWebSecurityExpressionHandler expressionHandler = new DefaultWebSecurityExpressionHandler();
+        expressionHandler.setRoleHierarchy(roleHierarchy);
+
+        return expressionHandler;
+    }
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -45,7 +57,8 @@ public class SecurityConfig {
                 .mvcMatchers("/user").hasRole("USER")
                 .mvcMatchers("/admin").hasRole("ADMIN")
                 .anyRequest().permitAll()
-                .accessDecisionManager(accessDecisionManager())
+//                .accessDecisionManager(accessDecisionManager())
+                .expressionHandler(expressionHandler())
             .and()
                 .formLogin();
         return http.build();

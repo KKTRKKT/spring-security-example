@@ -34,7 +34,8 @@ FilterChainProxy: FilterChain을 관리하는 주체로, 모든 요청은 Filter
 DelegatingFilterProxy: 서블릿 컨테이너에 등록된 필터로 요청이 들어오면 SpringApplicationContext에 등록된 FilterChainProxy에게 위임한다.
 
 AccessDecisionManager: 인가를 결정하는 인터페이스다. AccessDecisionVoter들의 찬성 및 반대 결과를 취합해 인가 여부를 결정한다
-                       취합 방법에는 AffrmativeBased(찬성이 하나라도 나오면 인가), ConsensusBased(다수결이면 인가), UnanimousBased(만장일치면 인가)가 있다.
-    - AccessDecisionVoter:
+                       구현체에는 AffrmativeBased(찬성이 하나라도 나오면 인가), ConsensusBased(다수결이면 인가), UnanimousBased(만장일치면 인가)가 있다.
+    - AccessDecisionVoter: 인증 후 생긴 Authentication(인증 정보)과 ConfigAttribute(권한 정보)를 통해 인가 여부를 결정한다
+        - ConfigAttribute: 권한을 나타내는 인터페이스로 문자열로 표현된다 (.mvcMatchers("/user").hasRole("USER")에서 "USER" 같은 문자열)
 
  */
