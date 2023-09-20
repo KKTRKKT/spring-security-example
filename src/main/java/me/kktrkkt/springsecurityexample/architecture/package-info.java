@@ -40,4 +40,12 @@ AccessDecisionManager: 인가를 결정하는 인터페이스다. AccessDecision
 
 FilterSecurityInterceptor: SecurityFilter 중 하나로 AccessDecisionManager를 통해 인가를 결정한다. 인가 실패시 예외를 던진다
                            doFilter -> invoke -> super.beforeInvocation -> attemptAuthorization -> accessDecisionManager.decide
+
+ExceptionTranslationFilter: FilterSecurityInterceptor에서 던지는 AuthenticationExcpetion과 AccessDeniedException을 처리하는 필터다.
+                            FilterChain에서 ExceptionTranslationFilter보다 순위가 낮은 모든 Filter들의 Excpetion을 잡으나 기본적으로 FilterSecurityInterceptor만 상대적으로 순위가 낮다
+                            AuthenticationExcpetion이 발생하면 AuthenticationEntryPoint를 실행해 인증받도록한다.
+                            AccessDeniedException이 발생하면 사용자 권한에 따라 달라진다.
+                            - 익명: AuthenticationException처럼 재인증 받게 한다.
+                            - 인증 유저: AccessDeniedHandler를 통해 처리하는데, 기본적을로 에러페이지가 존재하면 에러페이지로 이동하고 없으면 본문에 403 에러 메시지를 담아 반환한다
+
  */
