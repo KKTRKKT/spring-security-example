@@ -39,4 +39,5 @@ AccessDecisionManager: 인가를 결정하는 인터페이스다. AccessDecision
         - ConfigAttribute: 권한을 나타내는 인터페이스로 문자열로 표현된다 (.mvcMatchers("/user").hasRole("USER")에서 "USER" 같은 문자열)
 
 FilterSecurityInterceptor: SecurityFilter 중 하나로 AccessDecisionManager를 통해 인가를 결정한다. 인가 실패시 예외를 던진다
+                           doFilter -> invoke -> super.beforeInvocation -> attemptAuthorization -> accessDecisionManager.decide
  */
