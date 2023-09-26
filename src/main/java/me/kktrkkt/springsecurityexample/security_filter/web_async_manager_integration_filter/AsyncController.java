@@ -1,4 +1,4 @@
-package me.kktrkkt.springsecurityexample.async.security_async_filter;
+package me.kktrkkt.springsecurityexample.security_filter.web_async_manager_integration_filter;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;

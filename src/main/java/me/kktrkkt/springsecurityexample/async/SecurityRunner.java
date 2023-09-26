@@ -1,4 +1,4 @@
-package me.kktrkkt.springsecurityexample.async.service_filter;
+package me.kktrkkt.springsecurityexample.async;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

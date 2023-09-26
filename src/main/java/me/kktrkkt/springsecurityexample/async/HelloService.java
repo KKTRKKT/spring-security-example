@@ -1,10 +1,7 @@
-package me.kktrkkt.springsecurityexample.async.service_filter;
+package me.kktrkkt.springsecurityexample.async;
 
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-
-import java.util.concurrent.Callable;
 
 @Service
 public class HelloService {

@@ -1,4 +1,4 @@
-package me.kktrkkt.springsecurityexample.async.service_filter;
+package me.kktrkkt.springsecurityexample.async;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 
