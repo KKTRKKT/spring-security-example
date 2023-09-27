@@ -30,9 +30,10 @@ public class SecurityConfig {
         http.authorizeRequests()
                 .mvcMatchers("/", "/info").permitAll()
                 .mvcMatchers("/admin").hasRole("ADMIN")
-                .anyRequest().authenticated()
-                .and()
-                .formLogin().permitAll();
+                .anyRequest().authenticated();
+        http.formLogin()
+                .loginPage("/login")
+                .permitAll();
         return http.build();
     }
 
