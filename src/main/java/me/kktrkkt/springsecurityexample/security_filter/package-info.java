@@ -13,4 +13,5 @@ HeaderWriterFilter: 시큐리티 관련 헤더를 추가해준다. 마임 타입
 CsrfFilter: CSRF(사이트간 요청 위조) 공격을 방지한다. csrf 토큰을 통해 방지한다, http().csrf().disable()로 비활성화 가능
 LogoutFilter: 로그아웃을 담당하는 필터로 로그아웃 url, 로그아웃 처리, 로그아웃 성공 후 처리 및 url 설정 등을 담당한다. (http.logout()을 통해 설정)
 UsernamePasswordAuthenticationFilter: 아이디와 비밀번호로 로그인할 때 동작하는 인증 필터다. 자세한건 architecture.pakcage-info 참고
+DefaultLoginGeneratingFilter/DefaultLogoutGeneratingFilter: 로그인/로그아웃 페이지를 생성해주는 필터 (http.formLogin().usernameParameter().passwordParameter()로 파라미터명 설정 가능)
  */
