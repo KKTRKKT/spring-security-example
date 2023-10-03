@@ -15,4 +15,5 @@ LogoutFilter: 로그아웃을 담당하는 필터로 로그아웃 url, 로그아
 UsernamePasswordAuthenticationFilter: 아이디와 비밀번호로 로그인할 때 동작하는 인증 필터다. 자세한건 architecture.pakcage-info 참고
 DefaultLoginGeneratingFilter/DefaultLogoutGeneratingFilter: 로그인/로그아웃 페이지를 생성해주는 필터 (http.formLogin().usernameParameter().passwordParameter()로 파라미터명 설정 가능)
 BasicAuthenticationFilter: http 요청에 base64로 인코딩한 계정정보(id:password)를 넣어주면 인증되는 필터
+RequestCacheAwareFilter: 인증되지 않은 요청을 저장하고, 인증이 되면 해당 요청을 처리하는 필터 (AccessDecisionManager 처리 전에 요청을 저장한다)
  */
