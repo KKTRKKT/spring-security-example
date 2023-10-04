@@ -17,4 +17,5 @@ DefaultLoginGeneratingFilter/DefaultLogoutGeneratingFilter: 로그인/로그아�
 BasicAuthenticationFilter: http 요청에 base64로 인코딩한 계정정보(id:password)를 넣어주면 인증되는 필터
 RequestCacheAwareFilter: 인증되지 않은 요청을 저장하고, 인증이 되면 해당 요청을 처리하는 필터 (AccessDecisionManager 처리 전에 요청을 저장한다)
 SecurityContextHolderAwareRequestFilter: HttpServletRequest API를 구현하는 필터로 authenticate, login, logout, start를 구현한다
+AnonymousAuthenctaionFilter: SecurityContext에 Authentication이 없으면 익명 Authentication을 넣어준다 (http.anonymous() 를 통해 커스텀 가능하다)
  */
