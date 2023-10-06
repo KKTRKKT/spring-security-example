@@ -19,4 +19,5 @@ RequestCacheAwareFilter: 인증되지 않은 요청을 저장하고, 인증이 �
 SecurityContextHolderAwareRequestFilter: HttpServletRequest API를 구현하는 필터로 authenticate, login, logout, start를 구현한다
 AnonymousAuthenctaionFilter: SecurityContext에 Authentication이 없으면 익명 Authentication을 넣어준다 (http.anonymous() 를 통해 커스텀 가능하다)
 SessionManagementFilter: 세션 변조 방지, 세션 만료관련 설정, 최대 세션 설정, 세션 생성 전략등 세션과 관련된 기능을 제공해주는 필터다
+ExceptionTranslationFilter: AuthenticationException 및 AuthorizationException을 처리하는 필터, 인증 및 인가 실패 화면 설정 또는 핸들러를 설정할 수 있다 (http.exceptionHandling())
  */
