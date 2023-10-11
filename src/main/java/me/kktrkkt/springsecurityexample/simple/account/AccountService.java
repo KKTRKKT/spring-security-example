@@ -22,10 +22,7 @@ public class AccountService implements UserDetailsService {
         Account user = accounts.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException(username));
 
-        return User.withUsername(user.getUsername())
-                .password(user.getPassword())
-                .roles(user.getRole())
-                .build();
+        return new UserAccount(user);
     }
 
     public Account createUser(Account account) {
